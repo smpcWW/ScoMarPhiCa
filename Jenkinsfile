@@ -14,6 +14,8 @@ pipeline {
                 //gcloud init
                 //gcloud auth activate-service-account --key-file [KEY_FILE]
                 
+                //change here for jenkins test
+                
                 
                 // In most cases, this is not desirable when running 
                 // commands in a script or other automation. You can 
