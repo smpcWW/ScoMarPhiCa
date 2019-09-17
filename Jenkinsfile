@@ -1,7 +1,7 @@
-#!/usr/bin/groovy
-//Scripted Pipeline
-#!/usr/bin/groovy
-//Declaritive Pipeline
+// #!/usr/bin/groovy
+// //Scripted Pipeline
+// #!/usr/bin/groovy
+// //Declaritive Pipeline
 pipeline {
     agent any
     environment {
