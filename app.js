@@ -1,26 +1,13 @@
 var express = require('express');
-var exphbs  = require('express-handlebars'); //ADD THIS
-const http = require('http')
-const port = process.env.PORT || 3000
 
-const server = http.createServer((req,res) => {
-  // normalize url by removing querystring, optional
-  // trailing slash, and making it lowercase
-  const path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase()
-  switch(path) {
-    case '':
-      res.writeHead(200, { 'Content-Type': 'text/plain' })
-      res.end('Homepage')
-      break
-    case '/about':
-      res.writeHead(200, { 'Content-Type': 'text/plain' })
-      res.end('About')
-      break
-    default:
-      res.writeHead(404, { 'Content-Type': 'text/plain' })
-      res.end('Not Found')
-      break
-  } })
+var app = express();
 
-server.listen(port, () => console.log(`server started on port ${port}; ` +
-  'press Ctrl-C to terminate....'))
+app.set('port', process.env.PORT || 3000);
+
+app.get('/', function(req, res){
+  res.send('Express Works');
+});
+
+app.listen(app.get('port'),function(){
+  console.log('Express started press Ctrl-C to terminate');
+});
