@@ -1,4 +1,4 @@
-// #!/usr/bin/groovy
+#!/usr/bin/groovy
 // //Scripted Pipeline
 // #!/usr/bin/groovy
 // //Declaritive Pipeline
