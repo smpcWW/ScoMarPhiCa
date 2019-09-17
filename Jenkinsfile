@@ -1,4 +1,4 @@
-@Library("Jenkins pipeline Library") 
+@Library("Jenkins pipeline Library") _
 standardPipeline{
     productName = "Jenkins Website"
 }
