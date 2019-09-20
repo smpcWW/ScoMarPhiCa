@@ -2,4 +2,4 @@
 node_modules
 *~
 .DS_STORE
-credentials.js
+#credentials.js
