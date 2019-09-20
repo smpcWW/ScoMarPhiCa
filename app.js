@@ -89,6 +89,53 @@ app.post('/file-upload/:year/:month',
   });
 //});
 
+app.get('/cookie', function(req, res){
+  res.cookie('username', 'Scott Campbell',{expire: new Date() + 9999}).send('username has a value of Scott Campbell');
+});
+
+
+app.get('/listcookies', function(req, res){
+  console.log("Cookies : ", req.cookies.username);
+  res.status(303).send('Here is the cookies \{\"Username\" : \"' + req.cookies.username + ',   \"jenkins-timestamper-offset\" :  ' +  req.cookies[("jenkins-timestamper-offset")]+ '\}')
+});
+
+app.get('/deletecookies', function(req, res){
+  res.clearCookie('username');
+  res.send('Cookie Consumed');
+  console.log("Cookies : ", req.cookies);
+});
+
+var session = require('express-session');
+
+var parseurl = require('parseurl');
+
+app.use(session({
+  resave: false, 
+  saveUninitialized : true,
+  secret: credentials.cookieSecret,
+}));
+
+app.use(function(req, res, next){
+  var views = req.session.views;
+
+  if(!views){
+    views = req.session.views = {};
+  }
+
+  var pathname = parseurl(req).pathname;
+
+  views[pathname] = (views[pathname] || 0) + 1;
+
+  next();
+
+});
+
+app.get('/viewcount', function(req, res, next){
+  res.send('You viewed this page ' + req.session.views['/viewcount'] + ' times');
+  console.log(req.session.views)
+});
+
+
 app.use(function(req, res){
   res.type('text/html');
   res.status(404);
