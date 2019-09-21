@@ -1,6 +1,8 @@
 @Library("Jenkins pipeline Library") _
 standardPipeline{
     productName = "Jenkins Website"
+    major = 1
+    minor = 1
 }
 
 // #!/usr/bin/groovy
