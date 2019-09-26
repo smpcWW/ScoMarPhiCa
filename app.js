@@ -18,8 +18,8 @@ var formidable = require('formidable');
 var credentials = require('./credentials.js');
 app.use(require('cookie-parser')(credentials.cookieSecret));
 
-app.set('port', process.env.PORT || 3000);
-
+// app.set('port', process.env.PORT || 8080);
+app.set('port', 8080);
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
