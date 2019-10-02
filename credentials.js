@@ -1,1 +1,1 @@
-module.exports = {cookieSecret: 'brutal cockfight',};
+module.exports = {cookieSecret: 'brutal cockfight',};  
